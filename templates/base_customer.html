@@ -12,7 +12,7 @@
 </head>
 <body>
     {% block navbar %}
-        {% include 'includes/_navbar.html' %}
+        {% include 'includes/_navbar_customer.html' %}
     {% endblock %}
 
     <div class="container-fluid">
@@ -24,11 +24,11 @@
         {% include 'includes/_footer.html' %}
     {% endblock %}
     {% block scripts %}
-<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static',filename='js/owl.carousel.min.js')}}"></script>
     <script src="{{ url_for('static',filename='js/custom.js')}}"></script>
-
+    <script src="{{ url_for('static',filename='js/searchOrderID.js') }}"></script>
 {% endblock %}
 
 </body>
