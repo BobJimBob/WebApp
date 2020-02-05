@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}
+UserPage
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="{{ url_for('home') }}">Home</a>
+            <span class="breadcrumb-item active">User Profile</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>User Profile</h1>
+            {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <h3>{{ message }}</h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+        </div>
+    </section>
+    <section class="static about-sec">
+      <div class="container">
+        <div class="row">
+        <div class="col-md-8">
+            <h2>Recent Orders</h2>
+            <table class="order" border="1" cellpadding="5">
+              <tr>
+                <th class="orderdata">No.</th>
+                <th class="orderdata">Order ID</th>
+                <th class="orderdata">Book Name</th>
+                <th class="orderdata">Book ID</th>
+                <th class="orderdata">Verification Code</th>
+                <th class="orderdata">Date Purchased</th>
+                <th class="orderdata"> Status</th>
+              </tr>
+              <tr>
+                <td class="orderdata">1</td>
+                <td class="orderdata">31489K</td>
+                <td class="orderdata">Shit and Piss</td>
+                <td class="orderdata"><a href="">E21098</a></td>
+                <td class="orderdata" style="color:green;">Towaya</td>
+                <td class="orderdata">22/9/2019</td>
+                <td class="orderdata"><a href="">Processing</a></td>
+              </tr>
+              <tr>
+                <td class="orderdata">2</td>
+                <td class="orderdata">32132D</td>
+                <td class="orderdata">The Five</td>
+                <td class="orderdata"><a href="">G31224</a></td>
+                <td class="orderdata" style="color:green;">8lrkxw</td>
+                <td class="orderdata">19/4/2019</td>
+                <td class="orderdata"><a href="">Shipped</a></td>
+              </tr>
+              <tr>
+                <td class="orderdata">3</td>
+                <td class="orderdata">30244P</td>
+                <td class="orderdata">Blue Moon</td>
+                <td class="orderdata"><a href="">R20143</a></td>
+                <td class="orderdata" style="color:red;">ImkvxQ</td>
+                <td class="orderdata">16/3/2019</td>
+                <td class="orderdata"><a href="">Delivered</a></td>
+              </tr>
+              <tr>
+                <td class="orderdata">4</td>
+                <td class="orderdata">30244P</td>
+                <td class="orderdata">The Body</td>
+                <td class="orderdata"><a href="">T30932</a></td>
+                <td class="orderdata" style="color:red;">ImkvxQ</td>
+                <td class="orderdata">16/3/2019</td>
+                <td class="orderdata"><a href="">Delivered</a></td>
+              </tr>
+            </table>
+      </div>
+          <div class="col-md-4">
+            <h3>User Profile</h3>
+            <table border="0">
+              <tr>
+                <td>Name:</td>
+              </tr>
+              <tr>
+                <td id="nameinfo">{{ name }}</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+              </tr>
+              <tr>
+                <td id="emailinfo">{{ email }}</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>User ID:</td>
+              </tr>
+              <tr>
+                <td>{{ id }}</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              {% if haveaddress is sameas true %}
+              <tr>
+                <td>Address:</td>
+              </tr>
+              <tr>
+                <td>{{ address }}</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Postal:</td>
+              </tr>
+              <tr>
+                <td>{{ postal }}</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Country:</td>
+              </tr>
+              <tr>
+                <td>{{ country }}</td>
+              </tr>
+            </table>
+              {% else %}
+              <tr>
+                <td>Please set Address</td>
+              </tr>
+            </table>
+            <p></p>
+                <a class="btn" href="{{ url_for('addressinfo') }}">Add Address</a>
+            {% endif %}
+            {% if haveaddress is sameas true %}
+            <p>&nbsp;</p>
+            <a class="btn" href="{{ url_for('changeaddress') }}">Change address</a>
+            {% endif %}
+            <p></p>
+            <a class="btn" href="{{ url_for('changeinfo') }}">Change Password</a>
+            {% if havequestion is sameas true %}
+            <p></p>
+            {% else %}
+            <p></p>
+            <a class="btn" href="{{ url_for('setquestion') }}">Add Security Question</a>
+            {% endif %}
+          </div>
+      </div>
+    </div>
+    </section>
+{% endblock %}
