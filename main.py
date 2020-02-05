@@ -116,7 +116,7 @@ def feedback():
 
 @app.route('/createorder', methods=['GET', 'POST'])
 def ordergenerate():
-    return 'you gay'
+    return 'generate order details'
 
 '''
 Place for Hasan to put his codes
