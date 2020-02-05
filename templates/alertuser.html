@@ -1,0 +1,45 @@
+{% extends "base_admin.html" %}
+{% block title %}Alert User{% endblock %}
+{% block content %}
+    {% from "includes/_formHelper.html" import render_field %}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="#">Admin Mode</a>
+            <span class="breadcrumb-item active">Alert User</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Alert User</h1>
+            <p>Remember to fill in all the information. Add in previous information to indicate no change.</p>
+            <form class="form" method="POST">
+                {% for order in orderList %}  <!--- fix this code later--->
+                    <div class="row">
+                        <p class=col>Order ID: </p>
+                        <p class="col">{{ order.get_orderID() }}</p>
+                        <p class="col">User ID: </p>
+                        <p class="col"></p>
+                    </div>
+                    <div class="form-group">
+                        {{ render_field(form.deliveryStatus, class="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ render_field(form.newDeliveryCompany, class="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ render_field(form.newReceiveDate, class="form-control") }}
+                    </div>
+                    <div id="prof">
+                        <div class="form-group">
+                            {{ render_field(form.remarks, class="form-control") }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input class="btn col-2" type="submit" value="submit"/>
+                        <div class=col-10></div>
+                    </div>
+                {% endfor %}
+            </form>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base_delivery.html" %}
+{% block title %}Verification{% endblock %}
+{% block content %}
+    {% from "includes/_formHelper.html" import render_field %}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="#">Delivery Mode</a>
+            <span class="breadcrumb-item active">Delivery Confirmation</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Delivery Confirmation</h1>
+            <form class="form" method="POST">
+                <h3>User Information</h3>
+                <div class="form-group">
+                    <label for="userID">User ID:</label> <!--- add in something here later --->
+                    <div class="row">
+                        <p class="col">Country: </p>
+                        <p class="col"></p>
+                        <p class="col">State/Province: </p>
+                        <p class="col"></p>
+                    </div>
+                    <div class="row">
+                        <p class="col">Address: </p>
+                        <p class="col"></p>
+                        <p class="col">Postal Code: </p>
+                        <p class="col"></p>
+                    </div>
+                    <div class="row">
+                        <p class="col">E-mail Address: </p>
+                        <p class="col"></p>
+                        <p class="col">Phone number: </p>
+                        <p class="col"></p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Order Information</h3>
+                </div>
+                {% for order in orderList %}  <!--- fix this code later--->
+                    <div class="form-group">
+                        <div class="row">
+                            <p class=col>Order ID:</p>
+                            <p class="col">{{ order.get_orderID() }}</p>
+                            <p class="col">Delivery Status - Testing Only: </p>
+                            {% if order.get_delivery_status() == "D" %}
+                                <p class="col">Delivered</p>
+                            {% elif order.get_delivery_status() == "DG" %}
+                                <p class="col">Delivering</p>
+                            {% elif order.get_delivery_status() == "P" %}
+                                <p class="col">Processing</p>
+                            {% elif order.get_delivery_status() == "DY" %}
+                                <p class="col">Delayed</p>
+                            {% endif %}
+                        </div>
+                        <div class="row">
+                            <p class="col">Book ID: </p>
+                            <p class="col"></p>
+                            <p class="col">Book Title: </p>
+                            <p class="col"></p>
+                        </div>
+                        <div class="row">
+                            <p class="col">Book Publisher: </p>
+                            <p class="col"></p>
+                            <p class="col">Book Author: </p>
+                            <p class="col"></p>
+                        </div>
+                        <div class="row">
+                            <p class="col">Quantity: </p>
+                            <p class="col"></p>
+                            <p class="col">Total Price: </p>
+                            <p class="col"></p>
+                        </div>
+                        <div class="row">
+                            <p class="col">Delivery Company: </p>
+                            <p class="col">{{ order.get_delivery_company() }}</p>
+                            <p class="col"></p>
+                            <p class="col"></p>
+                        </div>
+                        <div class="row">
+                            <p class="col">Verification Code - Testing: </p>
+                            <p class="col">{{ order.get_verification() }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div>
+                    <h3>Verification</h3>
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.verifyDelivery, class = "form-control") }}
+                </div>
+                <div>
+                    <input class="btn" type="submit" value="submit"/>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
