@@ -27,9 +27,6 @@ def init():
     return 'bruh'
 
 
-
-
-
 @app.route('/product-single/<string:id>')
 def product_single(id):
 
@@ -79,27 +76,18 @@ def displaycart():
 
 @app.route('/deletecartItem/<string:id>', methods=['POST'])
 def deleteItem(id):
-
     db = shelve.open('cartstorage.db')
-
     db.pop(id)
-
     db.close()
-
     return redirect(url_for('displaycart'))
 
 
 @app.route('/deletecartAll', methods=['POST'])
 def deleteallItem():
-
     cartitemDict = {}
-
     db = shelve.open('cartstorage.db')
-
     db.clear()
-
     db.close()
-
     return redirect(url_for('displaycart'))
 
 
@@ -113,8 +101,7 @@ def checkout():
 
 @app.route('/receipt')
 def receipt():
-    orderdb = shelve.open('orderdatabase')
-    
+    orderdb = shelve.open('orderdatabase')   
     grandtotal = session.get('grandtotal', None)
     return render_template("receipt.html", grandtotal=grandtotal)
 
@@ -131,6 +118,9 @@ def feedback():
 def ordergenerate():
     return 'you gay'
 
+'''
+Place for Hasan to put his codes
+'''
 
 
 if __name__ == '__main__':
