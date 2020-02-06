@@ -121,7 +121,7 @@ def ordergenerate():
 '''
 Place for Hasan to put his codes
 '''
-'''
+
 @app.route('/deliveryStatus')
 def delivery_status():
     # posts = Post.query.all()
@@ -258,8 +258,6 @@ def view_more__delivery(id):
         orderList.append(order)
         return render_template('view_more_delivery.html', orderList=orderList, form=deliveryRemarkForm)
 
-
-'''
 
 if __name__ == '__main__':
     app.run(debug=True)
