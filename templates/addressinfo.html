@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}<div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="{{ url_for('home') }}">Home</a>
+            <a class="breadcrumb-item" href="{{ url_for('userpage') }}">User Profile</a>
+            <span class="breadcrumb-item active"> Address</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Change password</h1>
+            {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <h3>{{ message }}</h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<div class="form">
+                    <div class="row">
+                      <div class="col-3">
+                      </div>
+                        <div class="col-md-6">
+                            <form method="POST" action="/addressinfo">
+                                {{ form.hidden_tag() }}
+                                {{ wtf.form_field(form.address) }}
+                                {{ wtf.form_field(form.postal_code) }}
+                                {{ wtf.form_field(form.country) }}
+                                <button class="btn black" type="submit">Add Address</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
