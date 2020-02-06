@@ -3,7 +3,7 @@ import uuid
 from datetime import date
 class CartEntry:
 
-    def __init__(self,itemID, image,name,price,quantity):
+    def __init__(self, itemID, image, name, price, quantity):
 
         self.__itemID = itemID
         self.__image = image
@@ -75,6 +75,38 @@ class dbEntry:
         return self.__invquantity
     def set_invquantity(self, invquantity):
         self.__invquantity = invquantity
+
+class orderinfoC:
+    def __init__(self, orderID, cartinfo, trackingnum, verification):
+        self.__orderID = orderID
+        self.__cartinfo = cartinfo
+        self.__trackingnum = trackingnum
+        self.__verification = verification
+
+    def get_orderID(self):
+        return self.__orderID
+
+    def set_orderID(self, orderID):
+        self.__orderID = orderID
+
+    def get_cartinfo(self):
+        return self.__cartinfo
+
+    def set_cartinfo(self, cartinfo):
+        self.__cartinfo = cartinfo
+
+    def get_trackingnum(self):
+        return self.__trackingnum
+
+    def set_trackingnum(self, trackingnum):
+        self.__trackingnum = trackingnum
+
+    def get_verification(self):
+        return self.__verification
+
+    def set_verification(self, verification):
+        self.__verification = verification
+
 
 inventory = shelve.open('inventory.db', 'c')
 
