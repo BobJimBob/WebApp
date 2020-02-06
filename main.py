@@ -220,28 +220,38 @@ def all_orders():
 def verification(id):
     updateStatusForm = verification_form(request.form)
     if request.method == 'POST' and updateStatusForm.validate():
-        orderDict = {}
-        db = shelve.open('order.db', 'w')
-        orderDict = db['Orders']
-        order = orderDict.get(id) #change the codes here
+        userorders = {}
+        orderdb = shelve.open('orderdatabase.db')
+        userorders = orderdb[userID]
+        orderdb.close()
+        #orderDict = {}
+        #db = shelve.open('order.db', 'w')
+        #orderDict = db['Orders']
+        #order = orderDict.get(id) #change the codes here
+        order = userorders.get(id)
        #print(order.get_verification(), updateStatusForm.verifyDelivery.data)
         if order.get_verification() == updateStatusForm.verifyDelivery.data:
             order.set_delivery_status('D')
         # order.set_received_date
         #order.set_delivery_status(updateStatusForm.verifyDelivery.data)
-            db['Orders'] = orderDict
-            db.close()
+            orderdb[userID] = userorders
+            orderdb.close()
             return redirect(url_for('all_orders'))
         else:
             return 'Verification Code does not match'
         # return redirect(url_for('error_page'))
     else:
-        orderDict = {}
-        db = shelve.open('order.db', 'r')
-        orderDict = db['Orders']
-        db.close()
+        #orderDict = {}
+        #db = shelve.open('order.db', 'r')
+        #orderDict = db['Orders']
+        #db.close()
+        userorders = {}
+        orderdb = shelve.open('orderdatabase.db')
+        userorders = orderdb[userID]
+        orderdb.close()
 
-        order = orderDict.get(id)
+        order = userorders.get(id)
+        #order = orderDict.get(id)
         orderList = []
         orderList.append(order)
         #add in something here
@@ -253,20 +263,28 @@ def verification(id):
 def view_more__delivery(id):
     deliveryRemarkForm = remarksForms(request.form)
     if request.method == 'POST' and deliveryRemarkForm.validate():
-        orderDict = {}
-        db = shelve.open('order.db', 'w')
-        orderDict = db['Orders']
-        order = orderDict.get(id)
-        order.set_delivery_remarks(deliveryRemarkForm.remarks.data)
-        db['Orders'] = orderDict
-        db.close()
+        userorders = {}
+        orderdb = shelve.open('orderdatabase.db')
+        userorders = orderdb[userID]
+        #orderDict = {}
+        #db = shelve.open('order.db', 'w')
+        #orderDict = db['Orders']
+        #order = orderDict.get(id)
+        order = userorders.get(id)
+        #order.set_delivery_remarks(deliveryRemarkForm.remarks.data)
+        orderdb[userID] = userorders
+        orderdb.close()
         return redirect(url_for('all_orders'))
     else:
-        orderDict = {}
-        db = shelve.open('order.db', 'r')
-        orderDict = db['Orders']
-        db.close()
-        order = orderDict.get(id)
+        userorders = {}
+        orderdb = shelve.open('orderdatabase.db')
+        userorders = orderdb[userID]
+        #orderDict = {}
+        #db = shelve.open('order.db', 'r')
+        #orderDict = db['Orders']
+        orderdb.close()
+        order = userorders.get(id)
+        #order = orderDict.get(id)
         orderList = []
         orderList.append(order)
         return render_template('view_more_delivery.html', orderList=orderList, form=deliveryRemarkForm)
