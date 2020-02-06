@@ -81,7 +81,7 @@ class orderinfoC:
         self.__orderID = orderID
         self.__cartinfo = cartinfo
         self.__trackingnum = trackingnum
-        self.__status = "Processing"
+        self.__status = "P"
 
     def get_orderID(self):
         return self.__orderID
