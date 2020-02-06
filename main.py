@@ -122,6 +122,22 @@ def ordergenerate():
 Place for Hasan to put his codes
 '''
 '''
+@app.route('/deliveryStatus')
+def delivery_status():
+    # posts = Post.query.all()
+    orderDict = {}
+    db = shelve.open('order.db', 'r')
+    orderDict = db['Orders']
+    db.close()
+
+    orderList = []
+    for key in orderDict:
+        order = orderDict.get(key)
+        orderList.append(order)
+    return render_template("delivery_status.html", orderList=orderList, count=len(orderList))
+    # return render_template("delivery_status.html", orderList=orderList, count=len(orderList),posts=posts)
+
+
 @app.route('/alertUser/<id>', methods=['GET', 'POST'])
 def alert_user(id):
     alertChangeForm = alertForm(request.form)
@@ -138,6 +154,7 @@ def alert_user(id):
         print('something 2')
         db['Orders'] = orderDict
         db.close()
+
         return redirect(url_for('delivery_status'))
     else:
         orderDict = {}
@@ -169,6 +186,9 @@ def view_more_admin(id):
     return render_template('view_more_admin.html', orderList=orderList)
 
 
+'''
+add in code from app dev project 2
+'''
 @app.route('/allOrders')
 def all_orders():
     orderDict = {}
