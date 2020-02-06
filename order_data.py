@@ -1,6 +1,6 @@
 class Order:
     def __init__(self, orderID, date_sent, date_received, delivery_types, delivery_status, admin_remarks,
-                 user_remarks, delivery_remarks, verification_code):
+                 user_remarks, delivery_remarks, trackingnum):
         self.__orderID = orderID
         self.__date_sent = date_sent
         self.__date_received = date_received
@@ -9,7 +9,7 @@ class Order:
         self.__admin_remarks = admin_remarks
         self.__user_remarks = user_remarks
         self.__delivery_remarks = delivery_remarks
-        self.__verification_code = verification_code
+        self.__trackingnum = trackingnum
 
     def get_orderID(self):
         return self.__orderID
@@ -35,8 +35,8 @@ class Order:
     def get_delivery_remarks(self):
         return self.__delivery_remarks
 
-    def get_verification(self):
-        return self.__verification_code
+    def get_trackingnum(self):
+        return self.__trackingnum
 
     def set_orderID(self, orderID):
         self.__orderID = orderID
@@ -62,9 +62,6 @@ class Order:
     def set_delivery_remarks(self, delivery_remarks):
         self.__delivery_remarks = delivery_remarks
 
-    def set_verification(self, verification_code):
-        self.__verification_code = verification_code
-
-
-#order1 = Order('100A', '25/1/2019', '26/1/2019', 'Fast Delivery', 'Delivered', '-')
+    def set_trackingnum(self, trackingnum):
+        self.__trackingnum = trackingnum
 
