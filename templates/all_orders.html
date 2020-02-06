@@ -58,7 +58,7 @@
                             <td>Delayed</td>
                         {% endif %}
                         <td>{{ order.get_admin_remarks() }}</td>
-                        <td>{{ order.get_verification() }}</td>
+                        <td>{{ order.get_trackingnum() }}</td>
                         <td>
                             <a href="/verification/{{ order.get_orderID() }}" class="btn btn-warning">Verify</a>
                         </td>

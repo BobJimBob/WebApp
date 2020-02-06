@@ -61,6 +61,8 @@
                             <td>Air Shipping</td>
                         {% endif %}
                         {% if order.get_delivery_status() == "D" %}
+                            <td>Delivered</td>
+                        {% elif order.get_delivery_status() == "DG" %}
                             <td>Delivering</td>
                         {% elif order.get_delivery_status() == "P" %}
                             <td>Processing</td>
