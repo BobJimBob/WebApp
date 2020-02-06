@@ -436,11 +436,18 @@ def ordergenerate():
     orderinfo[userOrders.get_orderID()] = {userOrders}
     orderdb[userID] = orderinfo
 
+    '''
+def orderData():
+  orderdb = shelve.open('orderdatabase.db')
+  orderinfo[current_user.id] = 2
+  '''
+  
+  
+  
 '''
 Hasan's Stuff
 @app.route('/deliveryStatus')
 def delivery_status():
-    # posts = Post.query.all()
     orderDict = {}
     db = shelve.open('order.db', 'r')
     orderDict = db['Orders']
