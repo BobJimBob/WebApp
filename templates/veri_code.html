@@ -72,8 +72,12 @@
                             <p class="col"></p>
                         </div>
                         <div class="row">
-                            <p class="col">Delivery Company: </p>
-                            <p class="col">{{ order.get_delivery_company() }}</p>
+                            <p class="col">Delivery Type: </p>
+                            {% if order.get_delivery_types() == "S" %}
+                                <p class="col">Normal Delivery</p>
+                            {% elif order.get_delivery_types() == "A" %}
+                                <p class="col">Air Shipping</p>
+                            {% endif %}
                             <p class="col"></p>
                             <p class="col"></p>
                         </div>

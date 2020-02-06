@@ -44,9 +44,10 @@
                 <tr>
                     <th>Order ID</th>
                     <th>Date Received</th>
-                    <th>Delivery Company</th>
+                    <th>Delivery Type</th>
                     <th>Delivery Status</th>
                     <th>Remarks</th>
+                    <th>Alert User</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,7 +55,11 @@
                     <tr>
                         <td><a href="/view_more_admin/{{ order.get_orderID() }}">{{ order.get_orderID() }}</a></td>
                         <td>{{ order.get_date_received() }}</td>
-                        <td>{{ order.get_delivery_company() }}</td>
+                        {% if order.get_delivery_types() == "S" %}
+                            <td>Normal Delivery</td>
+                        {% elif order.get_delivery_types() == "A" %}
+                            <td>Air Shipping</td>
+                        {% endif %}
                         {% if order.get_delivery_status() == "D" %}
                             <td>Delivering</td>
                         {% elif order.get_delivery_status() == "P" %}

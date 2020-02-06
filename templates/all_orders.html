@@ -43,7 +43,11 @@
                     <tr>
                         <td><a href="/view_more_delivery/{{ order.get_orderID() }}">{{ order.get_orderID() }}</a></td>
                         <td>{{ order.get_date_received() }}</td>
-                        <td>{{ order.get_delivery_company() }}</td>
+                    {% if order.get_delivery_types() == "S" %}
+                            <td>Normal Delivery</td>
+                        {% elif order.get_delivery_types() == "A" %}
+                            <td>Air Shipping</td>
+                        {% endif %}
                         {% if order.get_delivery_status() == "D" %}
                             <td>Delivered</td>
                         {% elif order.get_delivery_status() == "DG" %}
