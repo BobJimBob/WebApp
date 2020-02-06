@@ -128,7 +128,7 @@ def delivery_status():
     orderdb = shelve.open('orderdatabase.db')
     userorders = orderdb[userID]
     #orderDict = db['Orders']
-    db.close()
+    orderdb.close()
 
     orderList = []
     for key in userorders:
@@ -142,26 +142,34 @@ def delivery_status():
 def alert_user(id):
     alertChangeForm = alertForm(request.form)
     if request.method == 'POST' and alertChangeForm.validate():
-        orderDict = {}
-        
+        #orderDict = {}
         #db = shelve.open('order.db', 'w')
-        orderDict = db['Orders']
-        order = orderDict.get(id)
-        order.set_date_received(alertChangeForm.newReceiveDate.data)
-        order.set_delivery_types(alertChangeForm.newDeliveryTypes.data)
+        #orderDict = db['Orders']
+        userorders = {}
+        orderdb = shelve.open('orderdatabase.db')
+        userorders = orderdb[userID]
+        order = userDict.get(id)
+        #order = orderDict.get(id)
+        #order.set_date_received(alertChangeForm.newReceiveDate.data)
+        #order.set_delivery_types(alertChangeForm.newDeliveryTypes.data)
         order.set_delivery_status(alertChangeForm.deliveryStatus.data)
-        order.set_admin_remarks(alertChangeForm.remarks.data)
-        db['Orders'] = orderDict
-        db.close()
+        #order.set_admin_remarks(alertChangeForm.remarks.data)
+        orderdb[userID] = userorders
+        #db['Orders'] = orderDict
+        orderdb.close()
 
         return redirect(url_for('delivery_status'))
     else:
-        orderDict = {}
-        db = shelve.open('order.db', 'r')
-        orderDict = db['Orders']
-        db.close()
-        print('failed')
-        order = orderDict.get(id)
+        #orderDict = {}
+        #db = shelve.open('order.db', 'r')
+        #orderDict = db['Orders']
+        #db.close()
+        userorders = {}
+        orderdb = shelve.open('orderdatabase.db')
+        userorders = orderdb[userID]
+        orderdb.close()
+        #order = orderDict.get(id)
+        order = userorders.get(id)
         orderList = []
         orderList.append(order)
         # takes info from dictionary
@@ -175,11 +183,16 @@ def alert_user(id):
 
 @app.route('/view_more_admin/<id>', methods=['GET','POST'])
 def view_more_admin(id):
-    orderDict = {}
-    db = shelve.open('order.db', 'r')
-    orderDict = db['Orders']
-    db.close()
-    order = orderDict.get(id)
+    userorders = {}
+    orderdb = shelve.open('orderdatabase.db')
+    userorders = orderdb[userID]
+    orderdb.close()
+    #orderDict = {}
+    #db = shelve.open('order.db', 'r')
+    #orderDict = db['Orders']
+    #db.close()
+    #order = orderDict.get(id)
+    order = userorders.get(id)
     orderList = []
     orderList.append(order)
     return render_template('view_more_admin.html', orderList=orderList)
@@ -187,14 +200,18 @@ def view_more_admin(id):
 
 @app.route('/allOrders')
 def all_orders():
-    orderDict = {}
-    db = shelve.open('order.db', 'r')
-    orderDict = db['Orders']
-    db.close()
+    userorders = {}
+    orderdb = shelve.open('orderdatabase.db')
+    userorders = orderdb[userID]
+    orderdb.close()
+    #orderDict = {}
+    #db = shelve.open('order.db', 'r')
+    #orderDict = db['Orders']
+    #db.close()
 
     orderList = []
-    for key in orderDict:
-        order = orderDict.get(key)
+    for key in userorders:
+        order = userorders.get(key)
         orderList.append(order)
     return render_template('all_orders.html', orderList=orderList)
 
