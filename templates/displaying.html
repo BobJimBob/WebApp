@@ -14,16 +14,16 @@
 
 <div class="container">
     <div class="row">
-             {% for user in itemList %}
+             {% for product in itemList %}
         <div class="col-sm-3" >
 
             <div class="card">
-                <a href="/Books/{{ user.get_userID()}}" style="text-decoration: none ; color:black" >
-                <img src={{url_for('static',filename = "images/{}".format(user.get_image_1()))}} class="card-img-top">
+                <a href="/Books/{{ product.get_userID()}}" style="text-decoration: none ; color:black" >
+                <img src={{url_for('static',filename = "images/{}".format(product.get_image_1()))}} class="card-img-top">
                 <div class="card-body"></div>
-                    <h5 class="text-cent" style="text-align: center">{{ user.get_productName() }}</h5><br/>
+                    <h5 class="text-cent" style="text-align: center">{{ product.get_productName() }}</h5><br/>
                      </a>
-                    <p class="text-center">${{ user.get_price() }}</p>
+                    <p class="text-center">${{ product.get_price() }}</p>
 
                 <div class="card-footer">
                   <a href="#" class="float-right btn btn-sm btn-warning">Add to cart </a>
@@ -31,6 +31,6 @@
             </div>
         </div>
 
-
     {% endfor %}
+
 {% endblock %}

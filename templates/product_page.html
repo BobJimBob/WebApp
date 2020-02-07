@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% block title %}Displaying{% endblock %}
 {%  block content %}
-   {% for user in usersList %}
+   {% for product in usersList %}
     <div class="breadcrumb">
         <div class="container">
             <a class="breadcrumb-item" href="/Home">Home</a>
-            <span class="breadcrumb-item active">{{ user.get_productName() }}</span>
+            <span class="breadcrumb-item active">{{ product.get_productName() }}</span>
         </div>
    </div>
 
     <section class="product-sec">
         <div class="container">
-            <h1> {{ user.get_productName() }}</h1>
-            <p style="font-size: 20px"> Author by: {{ user.get_author() }}</p>
-            <p style="font-size: 20px"> Publisher by: {{ user.get_publisher() }}</p>
+            <h1> {{ product.get_productName() }}</h1>
+            <p style="font-size: 20px"> Author by: {{ product.get_author() }}</p>
+            <p style="font-size: 20px"> Publisher by: {{ product.get_publisher() }}</p>
             <div class="row">
                 <div class="col-md-6 slider-sec">
                     <!-- main slider carousel -->
@@ -21,30 +21,30 @@
                         <!-- main slider carousel items -->
                         <div class="carousel-inner">
                             <div class="active item carousel-item" data-slide-number="0">
-                                <img src={{url_for('static',filename = "images/{}".format(user.get_image_1()))}} class="img-fluid">
+                                <img src={{url_for('static',filename = "images/{}".format(product.get_image_1()))}} class="img-fluid">
                             </div>
                             <div class="item carousel-item" data-slide-number="1">
-                                       <img src={{url_for('static',filename = "images/{}".format(user.get_image_2()))}} class="img-fluid">
+                                       <img src={{url_for('static',filename = "images/{}".format(product.get_image_2()))}} class="img-fluid">
                             </div>
                             <div class="item carousel-item" data-slide-number="2">
-                                     <img src={{url_for('static',filename = "images/{}".format(user.get_image_3()))}} class="img-fluid">
+                                     <img src={{url_for('static',filename = "images/{}".format(product.get_image_3()))}} class="img-fluid">
                             </div>
                         </div>
                         <!-- main slider carousel nav controls -->
                         <ul class="carousel-indicators list-inline">
                             <li class="list-inline-item active">
                                 <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
-                               <img src={{url_for('static',filename = "images/{}".format(user.get_image_1()))}} class="img-fluid">
+                               <img src={{url_for('static',filename = "images/{}".format(product.get_image_1()))}} class="img-fluid">
                             </a>
                             </li>
                             <li class="list-inline-item">
                                 <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
-                                             <img src={{url_for('static',filename = "images/{}".format(user.get_image_2()))}} class="img-fluid">
+                                             <img src={{url_for('static',filename = "images/{}".format(product.get_image_2()))}} class="img-fluid">
                             </a>
                             </li>
                             <li class="list-inline-item">
                                 <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
-                          <img src={{url_for('static',filename = "images/{}".format(user.get_image_3()))}} class="img-fluid">
+                          <img src={{url_for('static',filename = "images/{}".format(product.get_image_3()))}} class="img-fluid">
                             </a>
                             </li>
                         </ul>
@@ -53,17 +53,17 @@
                 </div>
                 <div class="col-md-6 slider-content">
 
-                    <p>{{ user.get_remarks()}} </p>
+                    <p>{{ product.get_remarks()}} </p>
                     <ul>
                         <li>
                             <span class="name">Kindle Price</span><span class="clm">:</span>
-                            <span class="price final">${{ user.get_price() }}</span>
+                            <span class="price final">${{ product.get_price() }}</span>
                         </li>
 
                     </ul>
                     <div class="btn-sec">
-                        <button class="btn ">Add To cart</button>
-                        <button class="btn black">Buy Now</button>
+                        <a href="#"class="btn ">Add To cart</a>
+                        <a href="#" class="btn black">Buy Now</a>
                     </div>
                 </div>
             </div>
