@@ -231,7 +231,7 @@ def verification(id):
         order = userorders.get(id)
        #print(order.get_verification(), updateStatusForm.verifyDelivery.data)
         if order.get_verification() == updateStatusForm.verifyDelivery.data:
-            order.set_delivery_status('D')
+            order.set_status('D')
         # order.set_received_date
         #order.set_delivery_status(updateStatusForm.verifyDelivery.data)
             orderdb[userID] = userorders
