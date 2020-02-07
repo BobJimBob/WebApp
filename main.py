@@ -91,7 +91,7 @@ def retrieveProducts():
     return render_template('retrieveproduct.html', usersList=usersList, count=len(usersList))
 
 
-@app.route('/updateBooks/<string:id>/', methods=['GET', 'POST'])
+@app.route('/updateBooks/<int:id>/', methods=['GET', 'POST'])
 def updateProduct(id):
     updateProductForm = CreateProductForm(request.form)
     if request.method == "POST" and updateProductForm.validate():
@@ -136,7 +136,7 @@ def updateProduct(id):
         return render_template('updateproduct.html', form=updateProductForm)
 
 
-@app.route('/deleteBooks/<string:id>', methods=['POST'])
+@app.route('/deleteBooks/<int:id>', methods=['POST'])
 def deleteUser(id):
     usersDict = {}
 
@@ -176,7 +176,7 @@ def get_category(category):
 
 
 
-@app.route('/Books/string:id>/', methods=['GET', 'POST'])
+@app.route('/Books/<int:id>/', methods=['GET', 'POST'])
 def product_single(id):
     itemDict = {}
     db = shelve.open('product.db', 'r')  # Opening product database
