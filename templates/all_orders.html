@@ -42,23 +42,19 @@
                 {% for order in orderList %}
                     <tr>
                         <td><a href="/view_more_delivery/{{ order.get_orderID() }}">{{ order.get_orderID() }}</a></td>
-                        <td>{{ order.get_date_received() }}</td>
-                    {% if order.get_delivery_types() == "S" %}
-                            <td>Normal Delivery</td>
-                        {% elif order.get_delivery_types() == "A" %}
-                            <td>Air Shipping</td>
-                        {% endif %}
-                        {% if order.get_delivery_status() == "D" %}
+                        <td></td>
+                        <td></td>
+                        {% if order.get_status() == "D" %}
                             <td>Delivered</td>
-                        {% elif order.get_delivery_status() == "DG" %}
+                        {% elif order.get_status() == "DG" %}
                             <td>Delivering</td>
-                        {% elif order.get_delivery_status() == "P" %}
+                        {% elif order.get_status() == "P" %}
                             <td>Processing</td>
-                        {% elif order.get_delivery_status() == "DY" %}
+                        {% elif order.get_status() == "DY" %}
                             <td>Delayed</td>
                         {% endif %}
-                        <td>{{ order.get_admin_remarks() }}</td>
-                        <td>{{ order.get_trackingnum() }}</td>
+                        <td></td>
+                        <td></td>
                         <td>
                             <a href="/verification/{{ order.get_orderID() }}" class="btn btn-warning">Verify</a>
                         </td>
