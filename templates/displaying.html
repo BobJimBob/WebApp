@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Displaying - {{ category }}{% endblock %}
+{%  block content %}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="index.html">Home</a>
+            <span class="breadcrumb-item active">{{ category }}</span>
+        </div>
+   </div>
+    <div class="static">
+    <h2>recently added books to our store</h2>
+    </div>
+  {% for user in itemList %}
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3 mt-3" >
+
+            <div class="card">
+                <a href="/Books/{{ user.get_userID()}}" style="text-decoration: none ; color:black" >
+                <img src={{url_for('static',filename = "images/{}".format(user.get_image_1()))}} class="card-img-top">
+                <div class="card-body"></div>
+                    <h5 class="text-cent" style="text-align: center">{{ user.get_productName() }}</h5><br/>
+                     </a>
+                    <p class="text-center">${{ user.get_price() }}</p>
+
+                <div class="card-footer">
+                  <a href="#" class="float-right btn btn-sm btn-warning">Add to cart </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+    {% endfor %}
+{% endblock %}

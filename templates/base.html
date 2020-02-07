@@ -1,35 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+     <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap 4.3.1 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shop.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tabs.css') }}">
+
+
 </head>
 <body>
-    {% block navbar %}
-        {% include 'includes/_navbar.html' %}
-    {% endblock %}
+     <div class="navbar">
+         {%  block navbar %}
+             {%  include "includes/_navbar.html" %}
+         {% endblock %}
+     </div>
+     <div class="content">
+     {% block content %}{% endblock %}
+        </div>
 
-    <div class="container-fluid">
-        {% block content %}
-        {% endblock %}
+    <div class="footer">
+        {% block footer %}
+      {% include "includes/_footers.html" %}
+        {%  endblock %}
     </div>
-.
-    {% block footer %}
-        {% include 'includes/_footer.html' %}
+ <!-- jQuery 3.3.1 + Popper.js 1.14.7 + Bootstrap JavaScript Plugins 4.3.1 -->
+     {% block scripts %}
+     <script type="text/javascript" src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/tabs.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>`
     {% endblock %}
-    {% block scripts %}
-<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static',filename='js/owl.carousel.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/custom.js')}}"></script>
-
-{% endblock %}
-
 </body>
 </html>

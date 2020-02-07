@@ -1,0 +1,50 @@
+.container_cat{
+  margin-bottom: 3%;
+  vertical-align: middle;
+}
+.Children_category_shop img{
+  border: solid ;
+  border-radius: 10px;
+  margin-left: 260px;
+  margin-right: auto;
+  height:auto;
+  width:180px;
+  float:left;
+  box-shadow: 5px 5px 5px grey
+}
+
+.Crime_Thriller_category_shop img {
+  position: relative;
+  margin-left: 90px;
+  margin-right: auto;
+  border:solid;
+  border-radius: 10px;
+  height:10%;
+  width:180px;
+  float: left;
+  box-shadow: 5px 5px 5px grey
+}
+.Friction_books_category_shop img{
+  position: relative;
+  margin-left: 90px;
+  border-radius: 10px;
+    margin-right: auto;
+  border:solid;
+  height:10%;
+  width:180px;
+  float: left;
+  box-shadow: 5px 5px 5px grey
+}
+.Graphcal_novel_category_shop img{
+  position: relative;
+  margin-left: 90px;
+  border-radius: 10px;
+    margin-right: auto;
+  border:solid;
+  height:10%;
+  width:180px;
+  box-shadow: 5px 5px 5px grey
+}
+.carousel-inner{
+  interval: 2000
+})

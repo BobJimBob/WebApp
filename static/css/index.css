@@ -1,0 +1,33 @@
+.Children_category_index{
+  background:white;
+  position: relative;
+  border:solid;
+  margin-right:auto;
+  box-shadow: 5px 5px 5px grey
+
+}
+
+.Friction_books_category_index{
+  position: relative;
+  border:solid;
+  background: white;
+  margin-left: 20px;
+  margin-right:auto;
+  box-shadow: 5px 5px 5px grey
+}
+.Crime_Thriller_category_index{
+  position: relative;
+  border:solid;
+  background: white;
+  margin-left: 20px;
+  margin-right:auto;
+  box-shadow: 5px 5px 5px grey
+}
+.Graphcal_novel_category_index {
+  position: relative;
+  border:solid;
+  background: white;
+  margin-left: 20px;
+  margin-right:auto;
+  box-shadow: 5px 5px 5px grey
+}

@@ -1,16 +1,15 @@
-{% extends "base.html" %}
-{% block title %}Home{% endblock %}
-{% block content %}
-{% from "includes/_formhelper.html" import render_field %}
-    <div class="breadcrumb" xmlns="http://www.w3.org/1999/html">
+{%  extends "base.html" %}
+{%  block title %}Product {% endblock %}
+{%  block content %}
+    <div class="breadcrumb">
         <div class="container">
             <a class="breadcrumb-item" href="index.html">Home</a>
-            <span class="breadcrumb-item active">Product</span>
+            <span class="breadcrumb-item active">Terms and Condition</span>
         </div>
     </div>
     <section class="product-sec">
         <div class="container">
-            <h1>{{ product.get_name() }}</h1>
+            <h1>7 Day Self publish How to Write a Book</h1>
             <div class="row">
                 <div class="col-md-6 slider-sec">
                     <!-- main slider carousel -->
@@ -18,30 +17,30 @@
                         <!-- main slider carousel items -->
                         <div class="carousel-inner">
                             <div class="active item carousel-item" data-slide-number="0">
-                                <img src="{{ product.get_image() }}" class="img-fluid">
+                                <img src="/static/images/product1.jpg" class="img-fluid">
                             </div>
                             <div class="item carousel-item" data-slide-number="1">
-                                <img src="images/product2.jpg" class="img-fluid">
+                                <img src="/static/images/product2.jpg" class="img-fluid">
                             </div>
                             <div class="item carousel-item" data-slide-number="2">
-                                <img src="images/product3.jpg" class="img-fluid">
+                                <img src="/static/images/product3.jpg" class="img-fluid">
                             </div>
                         </div>
                         <!-- main slider carousel nav controls -->
                         <ul class="carousel-indicators list-inline">
                             <li class="list-inline-item active">
                                 <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
-                                <img src="{{ product.get_image() }}" class="img-fluid">
+                                <img src="/static/images/product1.jpg" class="img-fluid">
                             </a>
                             </li>
                             <li class="list-inline-item">
                                 <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
-                                <img src="images/product2.jpg" class="img-fluid">
+                                <img src="/static/images/product2.jpg" class="img-fluid">
                             </a>
                             </li>
                             <li class="list-inline-item">
                                 <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
-                                <img src="images/product3.jpg" class="img-fluid">
+                                <img src="/static/images/product3.jpg" class="img-fluid">
                             </a>
                             </li>
                         </ul>
@@ -53,27 +52,61 @@
                     <p>t has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
                     <ul>
                         <li>
-                            <span class="name">Price</span><span class="clm">:</span>
-                            <span class="price final">{{ product.get_price() }}</span>
+                            <span class="name">Digital List Price</span><span class="clm">:</span>
+                            <span class="price">$4.71</span>
                         </li>
+                        <li>
+                            <span class="name">Print List Price</span><span class="clm">:</span>
+                            <span class="price">$10.99</span>
+                        </li>
+                        <li>
+                            <span class="name">Kindle Price</span><span class="clm">:</span>
+                            <span class="price final">$3.37</span>
+                        </li>
+                        <li><span class="save-cost">Save $7.62 (69%)</span></li>
                     </ul>
                     <div class="btn-sec">
-
-                        <form  action="{{url_for('additem', id=product.get_itemID())}}" method="POST">
-                         <p>Quantity:</p>
-                         <div>
-                                <input name="quantity" type="number" required value="1" >
-                            </div>
-                            <span></span>
-                        <input type="submit"  class="btn" value="Add to cart">
-                        <input type="submit"  class="btn black" value="Buy now">
-
-                        </form>
+                        <button class="btn ">Add To cart</button>
+                        <button class="btn black">Buy Now</button>
                     </div>
                 </div>
             </div>
         </div>
+        <br/>
+        <div class=tabs>
+        <ul class="nav nav-tabs">
+                		<li class="nav-item-pills" >
+                			<a href="#home" class="nav-link active" role="tab" data-toggle="tab">Product details</a>
+                		</li>
+
+                		<li class="nav-item-pills">
+                			<a href="#profile" class="nav-link" role="tab" data-toggle="tab">Book Reviews</a>
+                		</li>
+
+                		<li class="nav-item-pills">
+                			<a href="#about" class="nav-link" role="tab" data-toggle="tab">About Author</a>
+                		</li>
+
+
+                	</ul>
+
+                	<div class="tab-content">
+                		<div role="tabpanel" class="tab-pane fade in active" id="home">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/>
+                    </p><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</i></div>
+                		<div role="tabpanel" class="tab-pane fade" id="profile">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/>
+                    </p><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</i></div>
+                		<div role="tabpanel" class="tab-pane fade" id="about">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br/>
+                    </p><i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</i></div>
+
+                </div>
+                </div>
+
+
+
+
+
     </section>
+
     <section class="related-books">
         <div class="container">
             <h2>You may also like these book</h2>
@@ -81,7 +114,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
-                            <img src="images/img1.jpg" alt="img">
+                            <img src="/static/images/img1.jpg" alt="img">
                             <h3>how to be a bwase</h3>
                             <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
                             <div class="hover">
@@ -91,7 +124,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
-                            <img src="images/img2.jpg" alt="img">
+                            <img src="/static/images/img2.jpg" alt="img">
                             <h3>How to write a book...</h3>
                             <h6><span class="price">$19</span> / <a href="#">Buy Now</a></h6>
                             <span class="sale">Sale !</span>
@@ -102,7 +135,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
-                            <img src="images/img3.jpg" alt="img">
+                            <img src="/static/images/img3.jpg" alt="img">
                             <h3>7-day self publish...</h3>
                             <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
                             <div class="hover">
@@ -112,7 +145,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
-                            <img src="images/img4.jpg" alt="img">
+                            <img src="/static/images/img4.jpg" alt="img">
                             <h3>wendy doniger</h3>
                             <h6><span class="price">$49</span> / <a href="#">Buy Now</a></h6>
                             <div class="hover">
@@ -124,4 +157,5 @@
             </div>
         </div>
     </section>
-  {% endblock %}
+
+{% endblock %}

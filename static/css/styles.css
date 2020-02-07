@@ -217,10 +217,10 @@ header .cart {
     .slider button.owl-dot.active {
       background: #ff9700; }
 
-.recommended-sec {
+.recomended-sec {
   text-align: center;
   margin-bottom: 80px; }
-  .recommended-sec h2 {
+  .recomended-sec h2 {
     display: inline-block;
     font-size: 30px;
     padding: 0 15px;
@@ -229,21 +229,21 @@ header .cart {
     position: relative;
     text-transform: uppercase;
     color: #363636; }
-  .recommended-sec hr {
+  .recomended-sec hr {
     margin: 0;
     margin-top: -20px;
     border-top: 1px solid #999999; }
-  .recommended-sec .title {
+  .recomended-sec .title {
     margin-bottom: 70px; }
-  .recommended-sec .item {
+  .recomended-sec .item {
     border: 1px solid #d5d5d5;
     padding: 36px 10px;
     cursor: pointer;
     position: relative; }
-    .recommended-sec .item img {
+    .recomended-sec .item img {
       margin-bottom: 15px;
       max-width: 100%; }
-    .recommended-sec .item h3 {
+    .recomended-sec .item h3 {
       font-size: 16px;
       text-transform: uppercase;
       font-weight: 300;
@@ -251,19 +251,19 @@ header .cart {
       height: 22px;
       overflow: hidden;
       text-overflow: ellipsis; }
-    .recommended-sec .item h6 {
+    .recomended-sec .item h6 {
       font-size: 12px; }
-      .recommended-sec .item h6 span {
+      .recomended-sec .item h6 span {
         color: #ff0000; }
-      .recommended-sec .item h6 a {
+      .recomended-sec .item h6 a {
         color: #000;
         border-bottom: 1px solid #d5d5d5;
         padding-bottom: 1px; }
-        .recommended-sec .item h6 a:hover {
+        .recomended-sec .item h6 a:hover {
           text-decoration: none;
           border-bottom: 0;
           color: #ff9700; }
-    .recommended-sec .item .hover {
+    .recomended-sec .item .hover {
       position: absolute;
       background: rgba(204, 204, 204, 0.7);
       visibility: hidden;
@@ -276,23 +276,23 @@ header .cart {
       display: flex;
       transition: all .4s ease;
       opacity: 0; }
-      .recommended-sec .item .hover span {
+      .recomended-sec .item .hover span {
         margin: 0 auto;
         font-size: 50px;
         margin-top: 40px;
         transition: all 0.4s; }
-      .recommended-sec .item .hover a {
+      .recomended-sec .item .hover a {
         width: 100%;
         height: 100%;
         align-items: center;
         display: flex;
         color: #000; }
-    .recommended-sec .item:hover .hover {
+    .recomended-sec .item:hover .hover {
       visibility: visible;
       opacity: 1; }
-    .recommended-sec .item:hover span {
+    .recomended-sec .item:hover span {
       margin-top: 0; }
-    .recommended-sec .item .sale {
+    .recomended-sec .item .sale {
       background: #f9372c;
       padding: 10px 24px;
       position: absolute;
@@ -577,16 +577,16 @@ header .cart {
   header .main-menu .form-inline {
     max-width: 200px; }
 
-  .recommended-sec h2 {
+  .recomended-sec h2 {
     font-size: 26px; }
 
-  .recommended-sec hr {
+  .recomended-sec hr {
     margin-top: -15px; }
 
-  .recommended-sec .item {
+  .recomended-sec .item {
     margin-bottom: 30px; }
 
-  .recommended-sec {
+  .recomended-sec {
     margin-bottom: 50px; }
 
   .recent-book-sec .row .col-lg-2 {
@@ -696,10 +696,10 @@ header .cart {
   .slider .slide .content .title h5 {
     font-size: 12px; }
 
-  .recommended-sec .title {
+  .recomended-sec .title {
     margin-bottom: 40px; }
 
-  .recommended-sec h2 {
+  .recomended-sec h2 {
     font-size: 22px; }
 
   .recent-book-sec h2 {
@@ -835,13 +835,13 @@ header .cart {
   margin-bottom: 32px;
   text-transform: uppercase;
   color: #363636; }
-.static .recommended-sec {
+.static .recomended-sec {
   margin-bottom: 100px; }
-  .static .recommended-sec img {
+  .static .recomended-sec img {
     float: initial;
     margin: 0;
     margin-bottom: 15px; }
-    .static .recommended-sec img h3 {
+    .static .recomended-sec img h3 {
       opacity: 1; }
 .static .recent-book-sec {
   margin-bottom: 100px; }
@@ -907,7 +907,7 @@ header .cart {
     padding-bottom: 00px;
     margin-bottom: 0; }
 
-  .static .recommended-sec {
+  .static .recomended-sec {
     margin-bottom: 50px; } }
 @media only screen and (max-width: 480px) {
   .recent-book-sec .row {

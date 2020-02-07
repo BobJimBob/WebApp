@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% block title %}Product System - Retrieving Books Product {% endblock %}
+
+{% block content %}
+         <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="#">Admin Logs</a>
+            <span class="breadcrumb-item active">Retrieve Prdouct</span>
+        </div>
+         </div>
+<div class="container " >
+    <h1 class="display-4">Retrieve Product</h1>
+    <div>
+        {% if count == 0 %}
+            <p>There are no Products.</p>
+        {% elif count == 1 %}
+            <p>There is 1 Products.</p>
+        {% else %}
+            <p>There are {{ count }} Products.</p>
+        {% endif %} </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Genre</th>
+                <th>Price</th>
+                <th>Stocks</th>
+               <!-- <th>Remarks</th>-->
+                <th>Image</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in usersList %}
+                <tr>
+                    <td>{{ user.get_userID() }}</td>
+
+                    <td><a href="/Books/{{ user.get_userID() }}">{{ user.get_productName() }}</a></td>
+                    <td>{{ user.get_author() }}</td>
+                    <td>{{ user.get_publisher() }}</td>
+                    {% if user.get_genre() == "Children" %}
+                        <td>Children</td>
+                    {% elif user.get_genre()  == "Crime" %}
+                        <td>Crime</td>
+                    {% elif user.get_genre() == "Fiction"%}
+                        <td>Fiction</td>
+                    {% elif user.get_genre()  == "Manga"%}
+                        <td>Manga</td>
+                    {% endif %}
+                    <td>{{ user.get_price() }}</td>
+                    <td>{{ user.get_stocks() }}</td>
+                   <!-- <td>{{ user.get_remarks() }}</td> -->
+                    <td>
+                        <img src={{url_for('static',filename = "images/{}".format(user.get_image_1()))}} width="70" height ="50 ">
+                    </td>
+                     <td><a href="/updateBooks/{{user.get_userID()}}" class="btn btn-warning">Update</a></td>
+                    <td>
+                        <form action="{{url_for('deleteUser', id=user.get_userID() )}}" method="POST">
+                            <input type="submit" value="Delete" class="btn btndanger" onclick="return confirm('Are you sure you want to delete this user ? ')">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>>
+{% endblock %}
