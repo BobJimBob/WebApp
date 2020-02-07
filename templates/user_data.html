@@ -1,0 +1,72 @@
+{% extends "base_admin.html" %}
+{% block title %}User Data{% endblock %}
+{% block content %}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="#">Admin Mode</a>
+            <span class="breadcrumb-item active">User Data</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>User Data</h1>
+            <div class="row">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <ul class="navbar-nav ml-auto list-inline">
+                        <li class="navbar-item list-inline-item">
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search here..."
+                                       aria-label="Search">
+                                <span class="fas fa-search"></span>
+                            </form>
+                        </li>
+                        <li class="navbar-item list-inline-item">
+                            <h3 class="text">Sort by: </h3>
+                        </li>
+                        <li class="navbar-item dropdown list-inline-item">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">choose</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Date (new)</a>
+                                <a class="dropdown-item" href="#">Date (old)</a>
+                                <a class="dropdown-item" href="#">Order ID (ascending)</a>
+                                <a class="dropdown-item" href="#">Order ID (descending)</a>
+                            </div>
+                        </li>
+                        <li class="navbar-item list-inline-item">
+                            <a href="#" class="nav-link"><i class="fas fa-download fa-2x"></i></a>
+                        </li>
+                        <li class="navbar-item list-inline-item">
+                            <a href="#" class="nav-link"><i class="fas fa-copy fa-2x"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Date Joined</th>
+                    <th>Membership</th>
+                    <th>Last Active</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>100A</td>
+                    <td>John Doe</td>
+                    <td>13/12/2019</td>
+                    <td>Yes</td>
+                    <td>Today</td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

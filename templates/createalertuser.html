@@ -1,0 +1,45 @@
+{% extends "base_admin.html" %}
+{% block title %}Alert User - Testing{% endblock %}
+{% block content %}
+    {% from "includes/_formHelper.html" import render_field %}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="#">Admin Mode</a>
+            <span class="breadcrumb-item active">Alert User - Testing</span>
+        </div>
+    </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Alert User - Testing</h1>
+            <form class="form" method="POST" action="">
+                <div class="form-group">
+                    {{ render_field(form.orderID, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.userID, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.deliveryStatus, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.newDeliveryTypes, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.newReceiveDate, class="form-control") }}
+                </div>
+                <div class = "form-group">
+                    {{ render_field(form.verificationCode, class="form-control") }}
+                </div>
+                <div id="prof">
+                    <div class="form-group">
+                        {{ render_field(form.remarks, class="form-control") }}
+                    </div>
+                </div>
+                <div class="row">
+                    <input class="btn col-2" type="submit" value="submit"/>
+                    <div class=col-10></div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

@@ -34,52 +34,21 @@ UserPage
         <div class="row">
         <div class="col-md-8">
             <h2>Recent Orders</h2>
-            <table class="order" border="1" cellpadding="5">
+                <table class="order" border="1" cellpadding="5">
               <tr>
-                <th class="orderdata">No.</th>
-                <th class="orderdata">Order ID</th>
-                <th class="orderdata">Book Name</th>
-                <th class="orderdata">Book ID</th>
-                <th class="orderdata">Verification Code</th>
-                <th class="orderdata">Date Purchased</th>
-                <th class="orderdata"> Status</th>
+                <th class="orderdata">OrderID</th>
+                <th class="orderdata">Books</th>
+                <th class="orderdata">Tracking Number</th>
+                <th class="orderdata">Delivery Status</th>
               </tr>
+              {%  for items in orderinfo %}
               <tr>
-                <td class="orderdata">1</td>
-                <td class="orderdata">31489K</td>
-                <td class="orderdata">Shit and Piss</td>
-                <td class="orderdata"><a href="">E21098</a></td>
-                <td class="orderdata" style="color:green;">Towaya</td>
-                <td class="orderdata">22/9/2019</td>
-                <td class="orderdata"><a href="">Processing</a></td>
+                <td class="orderdata">{{ items.get_orderID() }}</td>
+
+                <td class="orderdata">{{  items.get_trackingnum() }}</td>
+                <td class="orderdata">{{ items.get_status() }}</td>
               </tr>
-              <tr>
-                <td class="orderdata">2</td>
-                <td class="orderdata">32132D</td>
-                <td class="orderdata">The Five</td>
-                <td class="orderdata"><a href="">G31224</a></td>
-                <td class="orderdata" style="color:green;">8lrkxw</td>
-                <td class="orderdata">19/4/2019</td>
-                <td class="orderdata"><a href="">Shipped</a></td>
-              </tr>
-              <tr>
-                <td class="orderdata">3</td>
-                <td class="orderdata">30244P</td>
-                <td class="orderdata">Blue Moon</td>
-                <td class="orderdata"><a href="">R20143</a></td>
-                <td class="orderdata" style="color:red;">ImkvxQ</td>
-                <td class="orderdata">16/3/2019</td>
-                <td class="orderdata"><a href="">Delivered</a></td>
-              </tr>
-              <tr>
-                <td class="orderdata">4</td>
-                <td class="orderdata">30244P</td>
-                <td class="orderdata">The Body</td>
-                <td class="orderdata"><a href="">T30932</a></td>
-                <td class="orderdata" style="color:red;">ImkvxQ</td>
-                <td class="orderdata">16/3/2019</td>
-                <td class="orderdata"><a href="">Delivered</a></td>
-              </tr>
+               {%  endfor %}
             </table>
       </div>
           <div class="col-md-4">

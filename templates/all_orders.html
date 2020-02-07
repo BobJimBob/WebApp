@@ -1,35 +1,25 @@
 {% extends "base.html" %}
-{% block title %}Delivery Status{% endblock %}
+{% block title %}All Orders{% endblock %}
 {% block content %}
     <div class="breadcrumb">
         <div class="container">
-            <a class="breadcrumb-item" href="#">Admin Mode</a>
-            <span class="breadcrumb-item active">Delivery Status</span>
+            <a class="breadcrumb-item" href="#">Delivery Mode</a>
+            <span class="breadcrumb-item active">All Orders</span>
         </div>
     </div>
     <section class="static about-sec">
         <div class="container">
-            <h1>Delivery Status</h1>
+            <h1>All Orders</h1>
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav ml-auto list-inline">
-                        <li class="navbar-item list-inline-item" style="padding-bottom: 5px;">
-                            <form class="form-inline my-2 my-lg-0" method="GET" action="search">
-                                <input class="form-control mr-sm-2" type="text" name="query" id="searchInput" onkeyup="searchFunction()" placeholder="Search by Order ID"
+                        <li class="navbar-item list-inline-item">
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="text" id = "searchInput" onkeyup="searchFunction()" placeholder="Search by Order ID"
                                        aria-label="Search">
                             </form>
                         </li>
                         <li class="navbar-item list-inline-item">
-                            <h3 class="text" style="padding-top: 13px;">Sort by: </h3>
-                        </li>
-                        <li class="navbar-item dropdown list-inline-item">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">choose</button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Date (new)</a>
-                                <a class="dropdown-item" href="#">Date (old)</a>
-                                <a class="dropdown-item" href="#">Order ID (ascending)</a>
-                                <a class="dropdown-item" href="#">Order ID (descending)</a>
-                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -41,16 +31,17 @@
                 <tr>
                     <th>Order ID</th>
                     <th>Date Received</th>
-                    <th>Delivery Type</th>
+                    <th>Company</th>
                     <th>Delivery Status</th>
                     <th>Remarks</th>
-                    <th>Alert User</th>
+                    <th></th>
+                    <th>Update</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for order in orderList %}
                     <tr>
-                        <td><a href="/view_more_admin/{{ order.get_orderID() }}">{{ order.get_orderID() }}</a></td>
+                        <td><a href="/view_more_delivery/{{ order.get_orderID() }}">{{ order.get_orderID() }}</a></td>
                         <td></td>
                         <td></td>
                         {% if order.get_status() == "D" %}
@@ -63,8 +54,9 @@
                             <td>Delayed</td>
                         {% endif %}
                         <td></td>
+                        <td></td>
                         <td>
-                            <a href="/alertUser/{{ order.get_orderID() }}" class="btn btn-warning">Alert User</a>
+                            <a href="/verification/{{ order.get_orderID() }}" class="btn btn-warning">Verify</a>
                         </td>
                     </tr>
                     </tbody>
