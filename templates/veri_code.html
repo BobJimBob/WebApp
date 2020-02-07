@@ -43,13 +43,13 @@
                             <p class=col>Order ID:</p>
                             <p class="col">{{ order.get_orderID() }}</p>
                             <p class="col">Delivery Status - Testing Only: </p>
-                            {% if order.get_delivery_status() == "D" %}
+                            {% if order.get_status() == "D" %}
                                 <p class="col">Delivered</p>
-                            {% elif order.get_delivery_status() == "DG" %}
+                            {% elif order.get_status() == "DG" %}
                                 <p class="col">Delivering</p>
-                            {% elif order.get_delivery_status() == "P" %}
+                            {% elif order.get_status() == "P" %}
                                 <p class="col">Processing</p>
-                            {% elif order.get_delivery_status() == "DY" %}
+                            {% elif order.get_status() == "DY" %}
                                 <p class="col">Delayed</p>
                             {% endif %}
                         </div>
@@ -73,17 +73,13 @@
                         </div>
                         <div class="row">
                             <p class="col">Delivery Type: </p>
-                            {% if order.get_delivery_types() == "S" %}
-                                <p class="col">Normal Delivery</p>
-                            {% elif order.get_delivery_types() == "A" %}
-                                <p class="col">Air Shipping</p>
-                            {% endif %}
+                            <p class="col"></p>
                             <p class="col"></p>
                             <p class="col"></p>
                         </div>
                         <div class="row">
                             <p class="col">Tracking Number: </p>
-                            <p class="col">{{ order.get_trackingnum() }}</p>
+                            <p class="col"></p>
                         </div>
                     </div>
                 {% endfor %}
