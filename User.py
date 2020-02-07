@@ -1,8 +1,9 @@
-class User:
+
+class Product:
     countID = 0
     def __init__(self,productName,author,publisher,genre,price,stocks,remarks,image_1,image_2,image_3):
-        User.countID +=1
-        self.__userID = User.countID
+        Product.countID +=1
+        self.__userID = Product.countID
         self.__productName = productName
         self.__author = author
         self.__publisher = publisher
@@ -13,6 +14,7 @@ class User:
         self.__image_1 = image_1
         self.__image_2 = image_2
         self.__image_3 = image_3
+
 
 
 
