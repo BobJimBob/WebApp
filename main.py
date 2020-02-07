@@ -1,11 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for,flash,current_app
+from flask import *
 from Forms import CreateProductForm
-from update_form import UpdateProduct
 import shelve, User
 from werkzeug.utils import secure_filename
 from flask_uploads import IMAGES,UploadSet,configure_uploads,patch_request_class
 import os , secrets
-
+import uuid
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -32,7 +31,6 @@ def Home():
 
 @app.route("/shop")
 def shop():
-
     return render_template("shop.html")
 
 
@@ -58,9 +56,10 @@ def createProducts():
         except:
             print("Error in retrieving Users from product.db.")
 
-        user = User.User(create_form.productName.data, create_form.author.data,create_form.publisher.data,create_form.genre.data
+        user = User.Product(create_form.productName.data, create_form.author.data,create_form.publisher.data,create_form.genre.data
                           ,create_form.price.data,create_form.stocks.data,create_form.remarks.data,image_1=image_1,image_2=image_2,image_3=image_3)
-        usersDict[user.get_userID()] = user
+        usersDict[user.get_userID()] = user #user.get_userID = int -->
+                                            #countID whenever adding
         db['Users'] = usersDict
 
         db.close()
