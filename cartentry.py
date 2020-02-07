@@ -77,11 +77,11 @@ class dbEntry:
         self.__invquantity = invquantity
 
 class orderinfoC:
-    def __init__(self, orderID, cartinfo, trackingnum, verification):
+    def __init__(self, orderID, cartinfo, trackingnum):
         self.__orderID = orderID
         self.__cartinfo = cartinfo
         self.__trackingnum = trackingnum
-        self.__verification = verification
+        self.__status = "Processing"
 
     def get_orderID(self):
         return self.__orderID
@@ -101,11 +101,11 @@ class orderinfoC:
     def set_trackingnum(self, trackingnum):
         self.__trackingnum = trackingnum
 
-    def get_verification(self):
-        return self.__verification
+    def get_status(self):
+        return self.__status
 
-    def set_verification(self, verification):
-        self.__verification = verification
+    def set_status(self, status):
+        self.__status = status
 
 
 inventory = shelve.open('inventory.db', 'c')

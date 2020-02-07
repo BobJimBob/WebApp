@@ -1,4 +1,4 @@
-from wtforms import Form, StringField, SelectField, TextAreaField, validators, DateField
+from wtforms import *
 
 
 class alertForm(Form):
