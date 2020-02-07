@@ -31,9 +31,6 @@
                                 <a class="dropdown-item" href="#">Order ID (descending)</a>
                             </div>
                         </li>
-                        <li class="navbar-item list-inline-item">
-                            <a href="#" class="nav-link"><i class="fas fa-download fa-2x"></i></a>
-                        </li>
                     </ul>
                 </nav>
             </div>
@@ -54,12 +51,8 @@
                 {% for order in orderList %}
                     <tr>
                         <td><a href="/view_more_admin/{{ order.get_orderID() }}">{{ order.get_orderID() }}</a></td>
-                        <td>{{ order.get_date_received() }}</td>
-                        {% if order.get_delivery_types() == "S" %}
-                            <td>Normal Delivery</td>
-                        {% elif order.get_delivery_types() == "A" %}
-                            <td>Air Shipping</td>
-                        {% endif %}
+                        <td></td>
+                        <td></td>
                         {% if order.get_delivery_status() == "D" %}
                             <td>Delivered</td>
                         {% elif order.get_delivery_status() == "DG" %}
@@ -69,7 +62,7 @@
                         {% elif order.get_delivery_status() == "DY" %}
                             <td>Delayed</td>
                         {% endif %}
-                        <td>{{ order.get_admin_remarks() }}</td>
+                        <td></td>
                         <td>
                             <a href="/alertUser/{{ order.get_orderID() }}" class="btn btn-warning">Alert User</a>
                         </td>
