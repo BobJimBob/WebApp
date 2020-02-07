@@ -624,7 +624,8 @@ def ordergenerate():
     cartitemdb = shelve.open('cartstorage.db')
     userID = str(current_user.id)
     trackingnum = str(uuid.uuid4())
-    userorders = orderinfoC(str(userID) + str(len(orderdb.keys())), cartitemdb, trackingnum)
+    orderID = str(userID) + str(len(orderdb.keys()))
+    userorders = orderinfoC(orderID, cartitemdb, trackingnum)
     orderinfo[userorders.get_orderID()] = {userorders}
 
     orderdb[str(current_user.id)] = orderinfo
