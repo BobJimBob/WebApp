@@ -126,6 +126,7 @@ Place for Hasan to put his codes
 def delivery_status():
     userorders = {}
     orderdb = shelve.open('orderdatabase.db')
+    userID = str(current_user.id)
     userorders = orderdb[userID]
     #orderDict = db['Orders']
     orderdb.close()
@@ -147,6 +148,7 @@ def alert_user(id):
         #orderDict = db['Orders']
         userorders = {}
         orderdb = shelve.open('orderdatabase.db')
+        userID = str(current_user.id)
         userorders = orderdb[userID]
         order = userDict.get(id)
         #order = orderDict.get(id)
@@ -166,6 +168,7 @@ def alert_user(id):
         #db.close()
         userorders = {}
         orderdb = shelve.open('orderdatabase.db')
+        userID = str(current_user.id)
         userorders = orderdb[userID]
         orderdb.close()
         #order = orderDict.get(id)
@@ -185,6 +188,7 @@ def alert_user(id):
 def view_more_admin(id):
     userorders = {}
     orderdb = shelve.open('orderdatabase.db')
+    userID = str(current_user.id)
     userorders = orderdb[userID]
     orderdb.close()
     #orderDict = {}
@@ -202,6 +206,7 @@ def view_more_admin(id):
 def all_orders():
     userorders = {}
     orderdb = shelve.open('orderdatabase.db')
+    userID = str(current_user.id)
     userorders = orderdb[userID]
     orderdb.close()
     #orderDict = {}
@@ -222,6 +227,7 @@ def verification(id):
     if request.method == 'POST' and updateStatusForm.validate():
         userorders = {}
         orderdb = shelve.open('orderdatabase.db')
+        userID = str(current_user.id)
         userorders = orderdb[userID]
         orderdb.close()
         #orderDict = {}
@@ -247,6 +253,7 @@ def verification(id):
         #db.close()
         userorders = {}
         orderdb = shelve.open('orderdatabase.db')
+        userID = str(current_user.id)
         userorders = orderdb[userID]
         orderdb.close()
 
@@ -265,6 +272,7 @@ def view_more__delivery(id):
     if request.method == 'POST' and deliveryRemarkForm.validate():
         userorders = {}
         orderdb = shelve.open('orderdatabase.db')
+        userID = str(current_user.id)
         userorders = orderdb[userID]
         #orderDict = {}
         #db = shelve.open('order.db', 'w')
@@ -278,6 +286,7 @@ def view_more__delivery(id):
     else:
         userorders = {}
         orderdb = shelve.open('orderdatabase.db')
+        userID = str(current_user.id)
         userorders = orderdb[userID]
         #orderDict = {}
         #db = shelve.open('order.db', 'r')
