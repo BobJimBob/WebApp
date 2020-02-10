@@ -31,7 +31,19 @@ def Home():
 
 @app.route("/shop")
 def shop():
-    return render_template("shop.html")
+    itemDict = {}
+    db = shelve.open('product.db', 'r')  # Opening product database
+    itemDict = db['Users']
+    db.close()
+
+    itemList = []
+    for key in itemDict:  # Looping data from itemDict
+        user = itemDict.get(key)
+
+        itemList.append(user)
+    print(len(itemList))
+
+    return render_template("shop.html", itemList = itemList)
 
 
 
