@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Create Product {% endblock %}
+
+{% block content %}
+     <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="#">Admin Logs</a>
+            <span class="breadcrumb-item active">Create Prdouct</span>
+        </div>
+     </div>
+    {% from "includes/_formhelper.html" import render_field %}
+<div class="container " >
+    <h1 class="display-4" style="text-decoration: none">Create Product</h1>
+        <br/>
+    <form method="POST" enctype=multipart/form-data action="">
+        <div class="form-group">     {{ render_field(form.productName, class="form-control") }}   </div>
+        <div class="form-group">     {{ render_field(form.author, class="form-control") }}   </div>
+        <div class="form-group">     {{ render_field(form.publisher, class="form-control") }}   </div>
+        <div class="form-group" style="list-style-type:none;">
+            {{ render_field(form.genre, class="form-check") }}   </div>
+        <div class="form-group">     {{ render_field(form.price, class="form-control") }}   </div>
+        <div class="form-group"> {{ render_field(form.stocks , class="form-control") }}</div>
+        <div id="prof">
+            <div class="form-group">  {{ render_field(form.remarks, class="form-control",placeholder = "Add product details ") }}     </div>
+        </div>
+        <p>You are required to choose <strong>3</strong> Images for the product</p>
+        <br/>
+        <div class="container">
+            <div class = "row" >
+                <div class="col-md-4">{{ render_field(form.image_1, class="form-control") }}</div>
+                <div class="col-md-4">{{ render_field(form.image_2, class="form-control") }}</div>
+                <div class="col-md-4">{{ render_field(form.image_3, class="form-control") }}</div>
+            </div>
+        </div>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary"/></form>
+</div>
+
+    <br/>
+{% endblock %}
